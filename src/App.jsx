@@ -6,13 +6,52 @@ import Card from "./components/Card";
 import Navbar from "./components/Navbar";
 import Nav2 from "./components/Nav2";
 import AuthModal from "./components/AuthModal";
+import Sidebar from "./components/Sidebar";
 
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 import { useState } from "react";
 
-import { faLocationDot, faCircleInfo } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import MobileNav from "./components/MobileNav";
+
+import {
+  faPencil,
+  faMicroscope,
+  faCalendar,
+} from "@fortawesome/free-solid-svg-icons";
+const cardData = [
+  {
+    genre: "Article",
+    genreIcon: faPencil,
+    title: " What if famous brands had regular fonts? Meet RegulaBrands! ",
+    content:
+      "I’ve worked in UX for the better part of a decade. From now on, I plan to rei...",
+    authorName: "Sarthak Kamra",
+    cardImg: "/CardImg1.png",
+    authorImg: "/AuthorImg1.png",
+  },
+  {
+    genre: "Education",
+    genreIcon: faMicroscope,
+    title:
+      "Tax Benefits for Investment under National Pension Scheme launched by Government",
+    content:
+      "I’ve worked in UX for the better part of a decade. From now on, I plan to rei...",
+    authorName: "Sarah West",
+    cardImg: "/CardImg2.png",
+    authorImg: "/AuthorImg2.png",
+  },
+  {
+    genre: "Meetup",
+    genreIcon: faCalendar,
+    title: "Finance & Investment Elite Social Mixer @Lujiazui",
+    content:
+      "I’ve worked in UX for the better part of a decade. From now on, I plan to rei...",
+    authorName: "Ronal Jones",
+    cardImg: "/CardImg3.png",
+    authorImg: "/AuthorImg3.png",
+  },
+];
 
 function App() {
   // Modal States
@@ -37,39 +76,15 @@ function App() {
       <Banner />
       <Container>
         <Nav2 />
+        <MobileNav />
         <Row>
           <Col xs={12} lg={9}>
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            {cardData.map((cardDetails, idx) => {
+              return <Card cardDetails={cardDetails} key={idx} />;
+            })}
           </Col>
           <Col className="d-none d-lg-block">
-            <div className="mt-5">
-              <Form>
-                <div className="d-flex align-items-center">
-                  <div className="d-flex align-items-center m-0 me-3">
-                    <p className="m-0 p-0">
-                      <FontAwesomeIcon icon={faLocationDot} />
-                    </p>
-                  </div>
-                  <Form.Control
-                    type="search"
-                    placeholder="Enter your Location"
-                    aria-label="Search"
-                  />
-                </div>
-              </Form>
-              <div className="d-flex mt-5">
-                <p className="m-0 p-0">
-                  <FontAwesomeIcon icon={faCircleInfo} />
-                </p>
-                <p className="m-0 p-0 ps-2">
-                  Your location will help us serve better and extend a
-                  personalised experience.
-                </p>
-              </div>
-            </div>
+            <Sidebar />
           </Col>
         </Row>
       </Container>

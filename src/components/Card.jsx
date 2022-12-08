@@ -3,7 +3,6 @@ import { Container } from "react-bootstrap";
 
 import {
   faEllipsis,
-  faPencil,
   faShareNodes,
   faEye,
 } from "@fortawesome/free-solid-svg-icons";
@@ -11,16 +10,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { Dropdown, DropdownButton } from "react-bootstrap";
 
-export default function Card() {
+export default function Card({ cardDetails }) {
+  const { genre, genreIcon, title, content, authorName, authorImg, cardImg } =
+    cardDetails;
   return (
     <div className={`${styles.cardContainer} border rounded w-100`}>
-      <img src="/CardImg1.png" alt="" className="img-fluid" />
+      <img src={cardImg} alt="" className="img-fluid" />
       <Container className="my-3">
         <p>
-          <FontAwesomeIcon icon={faPencil} /> Article
+          <FontAwesomeIcon icon={genreIcon} /> {genre}
         </p>
         <div className="d-flex justify-content-between">
-          <p>What if famous brands had regular fonts? Meet RegulaBrands!</p>
+          <p className="h5">{title}</p>
           <DropdownButton
             title={<FontAwesomeIcon icon={faEllipsis} />}
             drop="start"
@@ -34,15 +35,14 @@ export default function Card() {
             <Dropdown.Item href="#/action-4">Separated link</Dropdown.Item>
           </DropdownButton>
         </div>
-        <p>I’ve worked in UX for the better part of a decade. F..</p>
+        <p>{content}</p>
         <div className="d-flex justify-content-between align-items-center">
           <div className="d-flex align-items-center">
-            <img src="/AuthorImg1.png" className={styles.AuthorImg} alt="" />
+            <img src={authorImg} className={styles.AuthorImg} alt="" />
             <div className="ps-3">
-              <h5 className="m-0">Sarthak Kamra</h5>
+              <h5 className="m-0">{authorName}</h5>
               <p className="d-block d-md-none">
-                <FontAwesomeIcon icon={faEye} />
-                1.4k views
+                <FontAwesomeIcon icon={faEye} /> 1.4k views
               </p>
             </div>
           </div>

@@ -28,6 +28,18 @@
   padding: 0;
 }
 
+.joinGroup {
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
+}
+
+.backButton {
+  position: absolute;
+  top: 3rem;
+  left: 3rem;
+}
+
 @media screen and (min-width: 768px) {
   .imgTextContainer {
     color: white;

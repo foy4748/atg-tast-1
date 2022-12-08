@@ -7,12 +7,17 @@ import {
   NavDropdown,
 } from "react-bootstrap";
 
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faUserPlus, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Nav2() {
   return (
-    <Navbar bg="light" variant="light" sticky="top" className="mt-3">
+    <Navbar
+      bg="light"
+      variant="light"
+      sticky="top"
+      className="mt-3 d-none d-lg-flex"
+    >
       <Container>
         <Nav className="me-auto">
           <Nav.Link href="#home" active>
@@ -27,10 +32,10 @@ export default function Nav2() {
       <Container>
         <Nav className="ms-auto">
           <Nav.Link href="#features" as={Button} variant="outline-primary">
-            Write a Post
+            Write a Post <FontAwesomeIcon icon={faCaretDown} />
           </Nav.Link>
           <Nav.Link href="#features" as={Button} className="text-white ms-2">
-            Join a Group
+            <FontAwesomeIcon icon={faUserPlus} /> Join a Group
           </Nav.Link>
         </Nav>
       </Container>
