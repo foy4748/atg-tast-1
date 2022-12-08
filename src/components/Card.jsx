@@ -13,16 +13,14 @@ import { Dropdown, DropdownButton } from "react-bootstrap";
 
 export default function Card() {
   return (
-    <div className={styles.cardContainer}>
-      <img src="/CardImg1.png" alt="" />
-      <Container className="mt-3">
+    <div className={`${styles.cardContainer} border rounded w-100`}>
+      <img src="/CardImg1.png" alt="" className="img-fluid" />
+      <Container className="my-3">
         <p>
           <FontAwesomeIcon icon={faPencil} /> Article
         </p>
         <div className="d-flex justify-content-between">
-          <p className="border">
-            What if famous brands had regular fonts? Meet RegulaBrands!
-          </p>
+          <p>What if famous brands had regular fonts? Meet RegulaBrands!</p>
           <DropdownButton
             title={<FontAwesomeIcon icon={faEllipsis} />}
             drop="start"
@@ -40,7 +38,7 @@ export default function Card() {
         <div className="d-flex justify-content-between align-items-center">
           <div className="d-flex align-items-center">
             <img src="/AuthorImg1.png" className={styles.AuthorImg} alt="" />
-            <div className="p-3">
+            <div className="ps-3">
               <h5 className="m-0">Sarthak Kamra</h5>
               <p className="d-block d-md-none">
                 <FontAwesomeIcon icon={faEye} />
@@ -48,10 +46,10 @@ export default function Card() {
               </p>
             </div>
           </div>
-          <p className="d-none d-md-block">
+          <p className="d-none d-md-block m-0 p-0">
             <FontAwesomeIcon icon={faEye} /> 1.4k views
           </p>
-          <p>
+          <p className="p-2 m-0">
             <FontAwesomeIcon icon={faShareNodes} />
           </p>
         </div>
