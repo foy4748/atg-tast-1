@@ -5,15 +5,35 @@ import Banner from "./components/Banner";
 import Card from "./components/Card";
 import Navbar from "./components/Navbar";
 import Nav2 from "./components/Nav2";
+import AuthModal from "./components/AuthModal";
+
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
+
+import { useState } from "react";
 
 import { faLocationDot, faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function App() {
+  // Modal States
+  const [show, setShow] = useState(false);
+  const [modalTitle, setModalTitle] = useState(null);
+
+  const handleClose = () => setShow(false);
+
+  const handleShow = (title) => {
+    setModalTitle(title);
+    setShow(true);
+  };
+
   return (
     <>
-      <Navbar />
+      <AuthModal
+        handleClose={handleClose}
+        show={show}
+        modalTitle={modalTitle}
+      />
+      <Navbar handleShow={handleShow} handleClose={handleClose} />
       <Banner />
       <Container>
         <Nav2 />

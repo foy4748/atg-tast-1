@@ -8,7 +8,7 @@ import {
 } from "react-bootstrap";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-export default function NavBar() {
+export default function NavBar({ handleShow, handleClose }) {
   return (
     <Navbar className="d-none d-lg-block" bg="light" expand="lg" sticky="top">
       <Container>
@@ -35,13 +35,20 @@ export default function NavBar() {
                 id="navbarScrollingDropdown"
                 className="mx-5"
               >
-                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">
-                  Another action
+                <NavDropdown.Item
+                  href="#"
+                  onClick={() => handleShow("Create Account")}
+                >
+                  Create Account
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="#action5">
-                  Something else here
+                <NavDropdown.Item
+                  href="#"
+                  onClick={() => {
+                    handleShow("Login");
+                  }}
+                >
+                  Login
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>
